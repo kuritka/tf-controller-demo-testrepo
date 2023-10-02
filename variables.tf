@@ -1,6 +1,6 @@
 variable "context" {
   type        = string
-  default     = "k3d-east"
+  default     = "k3d-west"
   description = "The context to use for kubectl [k3d-east, k3d-west]"
   validation {
     condition     = contains(["k3d-east", "k3d-west"], var.context)
