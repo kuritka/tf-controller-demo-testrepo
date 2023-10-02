@@ -1,3 +1,8 @@
+ifneq ($(wildcard ./.env),)
+	include .env
+	export
+endif
+
 tfsec:
 	@echo "Running tfsec"
 	@brew install tfsec
@@ -13,3 +18,6 @@ tfmt:
 	terraform fmt -recursive
 
 check: tfmt tflint tfsec
+
+init:
+	terraform init -migrate-state
