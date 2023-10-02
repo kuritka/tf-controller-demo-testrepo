@@ -5,7 +5,7 @@ terraform {
     secret_suffix  = "state"
     config_path    = "/var/.kube/kubeconfig.yaml"
     namespace      = "backend"
-    config_context = "k3d-west"
+    config_context = "k3d-backend"
   }
 
   required_providers {
