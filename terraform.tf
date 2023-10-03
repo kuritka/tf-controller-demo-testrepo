@@ -3,9 +3,9 @@ terraform {
 
   backend "kubernetes" {
     secret_suffix  = "state"
-    config_path    = "/var/.kube/kubeconfig.yaml"
+#    config_path    = "~/.kube/config"
     namespace      = "backend"
-    config_context = "k3d-backend"
+#    config_context = "k3d-backend"
   }
 
   required_providers {
@@ -17,7 +17,8 @@ terraform {
 }
 
 provider "kubernetes" {
-#  config_path    = "/var/.kube/kubeconfig.yaml"
+#   config_path    = "/var/.kube/kubeconfig.yaml"
+#   config_context = "k3d-backend"
 #  config_context = var.context
   #  terraform plan runs in terraform cloud and doesn't have access to the kubeconfig file
   #  terraform cloud can set terraform variables which can be used to set the kubernetes provider
