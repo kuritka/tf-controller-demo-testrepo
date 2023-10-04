@@ -15,3 +15,18 @@ resource "kubernetes_namespace" "tf_controller_test" {
     name        = var.name
   }
 }
+
+
+resource "kubernetes_secret" "example" {
+  metadata {
+    name        = "basic-auth"
+    namespace   = kubernetes_namespace.tf_controller_test.metadata[0].name
+  }
+
+  data = {
+    username = "test"
+    password = "test"
+  }
+
+  type = "kubernetes.io/basic-auth"
+}
