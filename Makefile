@@ -21,3 +21,6 @@ check: tfmt tflint tfsec
 
 init:
 	terraform init -migrate-state
+
+download-tfstate:
+	kubectl get secret tfstate-default-state -ojsonpath='{.data.tfstate}' -n backend --context=k3d-backend | base64 -d | gzip -d > terraform.tfstate
