@@ -14,8 +14,13 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = ">= 1.11.3"
     }
+    kubectl = {
+      source = "gavinbunney/kubectl"
+      version = "1.14.0"
+    }
   }
 }
 
 provider "kubernetes" {
 }
+
